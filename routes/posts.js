@@ -3,7 +3,7 @@ const Post = require("../models/Post.js");
 const User = require("../models/User.js");
 
 //CREATE NEW POST
-router.post("/", async (req, res) => {
+router.post("/createpost", async (req, res) => {
   const user = await User.findById(req.body.userId);
   if (user) {
     const newPost = new Post(req.body);
@@ -66,7 +66,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //GET ALL POSTS
-router.get("/allposts", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const posts = await Post.find();
 
